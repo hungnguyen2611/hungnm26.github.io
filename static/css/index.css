@@ -2,6 +2,38 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
+.animated-gradient-text {
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff7e5f, #feb47b, #86a8e7, #7f7fd5);
+    background-size: 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-animation 3s ease infinite;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.animated-gradient-text i {
+    margin-right: 10px;
+    font-size: 1.2em;
+    background: inherit; /* Inherit the same background gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: inherit; /* Inherit the same animation */
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
 
 .footer .icon-link {
     font-size: 25px;

@@ -5,8 +5,8 @@
   <meta name="description"
         content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
   <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nerfies: Deformable Neural Radiance Fields</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <title>SwiftTry: Fast and Consistent Video Virtual Try-On with Diffusion Models</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -24,7 +24,7 @@
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
@@ -62,7 +62,7 @@
         <a class="navbar-link">
           More Research
         </a>
-        <div class="navbar-dropdown">
+        <!-- <div class="navbar-dropdown">
           <a class="navbar-item" href="https://hypernerf.github.io">
             HyperNeRF
           </a>
@@ -75,7 +75,7 @@
           <a class="navbar-item" href="https://photoshape.github.io">
             PhotoShape
           </a>
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -88,19 +88,24 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Nerfies: Deformable Neural Radiance Fields</h1>
+          <h1 class="title is-1 publication-title">
+            <span class="animated-gradient-text">
+               SwiftTry
+            </span>
+            : Fast and Consistent Video Virtual Try-On with Diffusion Models
+          </h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://keunhong.com">Keunhong Park</a><sup>1</sup>,</span>
+              <a href="https://hungnm66.com">Hung Nguyen</a>,</span>
             <span class="author-block">
-              <a href="https://utkarshsinha.com">Utkarsh Sinha</a><sup>2</sup>,</span>
+              <a href="https://utkarshsinha.com">Quang Qui-Vinh Nguyen</a>,</span>
             <span class="author-block">
-              <a href="https://jonbarron.info">Jonathan T. Barron</a><sup>2</sup>,
+              <a href="https://khoinguyen.org">Khoi Nguyen</a>,
             </span>
             <span class="author-block">
-              <a href="http://sofienbouaziz.com">Sofien Bouaziz</a><sup>2</sup>,
+              <a href="http://rangnguyen.github.io">Rang Nguyen</a>
             </span>
-            <span class="author-block">
+            <!-- <span class="author-block">
               <a href="https://www.danbgoldman.com">Dan B Goldman</a><sup>2</sup>,
             </span>
             <span class="author-block">
@@ -108,12 +113,11 @@
             </span>
             <span class="author-block">
               <a href="http://www.ricardomartinbrualla.com">Ricardo Martin-Brualla</a><sup>2</sup>
-            </span>
+            </span> -->
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>University of Washington,</span>
-            <span class="author-block"><sup>2</sup>Google Research</span>
+            <span class="author-block">VinAI Research</span>
           </div>
 
           <div class="column has-text-centered">
@@ -183,9 +187,9 @@
                 type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
-        free-viewpoint
-        portraits.
+        <span class="animated-gradient-text">SwiftTry</span> can try-on users' videos into new 
+        try-on videos 
+        with new garments
       </h2>
     </div>
   </div>
@@ -258,31 +262,30 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
+            Given an input video of a person and a new garment, 
+            the objective of this paper is to synthesize a new video 
+            where the person is wearing the specified garment while 
+            maintaining spatiotemporal consistency. 
           </p>
           <p>
-            Our approach augments neural radiance fields
-            (NeRF) by optimizing an
-            additional continuous volumetric deformation field that warps each observed point into a
-            canonical 5D NeRF.
-            We observe that these NeRF-like deformation fields are prone to local minima, and
-            propose a coarse-to-fine optimization method for coordinate-based models that allows for
-            more robust optimization.
-            By adapting principles from geometry processing and physical simulation to NeRF-like
-            models, we propose an elastic regularization of the deformation field that further
-            improves robustness.
+            While significant advances have been made in image-based 
+            virtual try-ons, extending these successes to video often 
+            results in frame-to-frame inconsistencies. 
+            Some approaches have attempted to address this by 
+            increasing the overlap of frames across multiple video chunks, 
+            but this comes at a steep computational cost due to the repeated 
+            processing of the same frames, especially for long video sequence. 
           </p>
           <p>
-            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-            photos/videos into deformable NeRF
-            models that allow for photorealistic renderings of the subject from arbitrary
-            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
+            To address these challenges, we reconceptualize video virtual try-on as a conditional video inpainting task, 
+            with garments serving as input conditions. 
+            Specifically, our approach enhances image diffusion models by 
+            incorporating temporal attention layers to improve temporal coherence. 
+            To reduce computational overhead, we introduce ShiftCaching, a novel technique that maintains temporal consistency while minimizing redundant computations. 
+            Furthermore, we introduce the TikTokDress dataset, a new video try-on dataset featuring more complex backgrounds, challenging movements, and higher resolution 
+            compared to existing public datasets. 
+            Extensive experiments show that our approach outperforms current baselines, particularly in terms of video consistency and inference speed. 
+            Code and dataset will be made available upon acceptance.
           </p>
         </div>
       </div>
